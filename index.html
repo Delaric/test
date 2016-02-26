@@ -1,132 +1,132 @@
 <html class="no-js">
- +  <head>
- +  <style type="text/css">@charset "UTF-8";[ng\:cloak],[ng-cloak],[data-ng-cloak],[x-ng-cloak],.ng-cloak,.x-ng-cloak,.ng-hide:not(.ng-hide-animate){display:none !important;}ng\:form{display:block;}</style> 
- +	
- +    <meta charset="utf-8"> 
- +    <title>The Gilman House Hotel</title> 
- +    <meta name="description"> 
- +    <!-- <meta name=viewport content="width=device-width"> -->
- +    <link rel="stylesheet" href="styles/main.css">
- +    <link rel="stylesheet" href="styles/style.css">
- +    <!-- <link rel=stylesheet href=styles/vendor.css> -->
- +    <!-- <link rel=stylesheet href=styles/app-blue.css> -->
- +    <!-- Calendar -->
- +    <link rel="stylesheet" href="jquery-ui.css">
- +    <script src="jquery-1.10.2.js"></script>
- +    <script src="jquery-ui.js"></script>
- +    
- +  </head> 
- +  <body ng-app="yapp" style="" class="ng-scope">
- +    <!-- uiView:  --><div ui-view="" ng-controller="authCtrl" class="ng-scope"><div class="ui-base ng-scope"> <!-- uiView:  --><div ui-view="" class="ng-scope"><div class="dashboard-page ng-scope" ng-controller="init">
- +  <div class="container-fluid">
- +    <div class="row">
- +      <div class="col-sm-3 col-md-2 sidebar">
- +	<div class="text-center">
- +          <h2 class="brand"><img src="images/tales.png" height="52" width="52">     
- +	    Love of Tales<br>
- +	    <small>
- +	      Welcome <a ng-href="#/deck/user:Guest" style="color:white" class="ng-binding" href="#/deck/user:Guest">Guest</a>
- +	      <a ng-click="logOut()" ng-show="authData" class="btn btn-white btn-outline btn-rounded btn-sm ng-hide">Log Out</a>
- +	      <a ng-click="logIn()" ng-hide="authData" class="btn btn-white btn-outline btn-rounded btn-sm">Log In</a>
- +	    </small>
- +	  </h2>
- +	</div>
- +
- +
- +
- +
- +
- +
- +
- +
- +	<div class="text-center">
- +          <!-- <img src=images/tales.png class=user-avatar><br> -->
- +          <div class="cardpreviewdiv ng-scope" ng-controller="previewCtrl as preview">
- +            <div>
- +              <div style="width: 100%;" ng-hide="preview.name()==''" class="ng-binding">Dwarven Axe<br> (Core Set)<br>
- +                <div style="left:25%;width:100%;">
- +                  <a class="btn btn-white btn-outline btn-rounded btn-sm activetab" href="" ng-click="preview.setTab('img')" ng-class="{activetab: preview.isSet('img')}">Image</a>
- +                  <a class="btn btn-white btn-outline btn-rounded btn-sm" href="" ng-click="preview.setTab('tex'); preview.image.loaded=false" ng-class="{activetab: preview.isSet('tex')}">Text</a>
- +		</div>
- +		<div style="border-radius:5px;border:4px solid #ffffff;background:#ffffff;height:47%">
- +		  <!-- ngIf: preview.image.url&&preview.isSet('img') --><img ng-if="preview.image.url&amp;&amp;preview.isSet('img')" ng-src="http://www.cardgamedb.com/forums/uploads/lotr/dwarven-axe-core.jpg" class="cardpreview ng-scope" alt="Restricted.
- +Attach to a hero.
- +Attached hero gains +1 Attack. (+2 Attack instead if attached hero is a Dwarf.)" title="Restricted.
- +Attach to a hero.
- +Attached hero gains +1 Attack. (+2 Attack instead if attached hero is a Dwarf.)" imageonload="" src="http://www.cardgamedb.com/forums/uploads/lotr/dwarven-axe-core.jpg"><!-- end ngIf: preview.image.url&&preview.isSet('img') -->
- +		  
- +		  <div ng-hide="preview.image.url&amp;&amp;preview.isSet('img')" style="color: black;" class="ng-hide">
- +		    <table ng-hide="preview.image.url&amp;&amp;preview.isSet('img')&amp;&amp;preview.image.loaded" class="ng-hide">
- +		      <tbody><tr>
- +			<td colspan="2">
- +			  <h2 class="ng-binding">(2)</h2></td>
- +		      </tr>
- +		      <tr ng-show="preview.image.willpower!=null" class="ng-hide">
- +			<td class="ng-binding"></td>
- +			<td><img src="images/willpower.gif"></td>
- +		      </tr>
- +		      <tr ng-show="preview.image.willpower!=null" class="ng-hide">
- +			<td class="ng-binding"></td>
- +			<td><img src="images/strength.gif"></td>
- +		      </tr>
- +		      <tr ng-show="preview.image.willpower!=null" class="ng-hide">
- +			<td class="ng-binding"></td>
- +			<td><img src="images/defense.gif"></td>
- +		      </tr>
- +		      <tr ng-show="preview.image.willpower!=null" class="ng-hide">
- +			<td class="ng-binding"></td>
- +			<td><img src="images/hitpoints.png" height="20px/"></td>
- +		      </tr>
- +		      <tr>
- +			<td colspan="2"><img ng-src="images/spheres/2tactics.png" src="images/spheres/2tactics.png"></td>
- +			<td class="ng-binding"> Attachment </td>
- +		      </tr>
- +		    </tbody></table>
- +		    <div ng-hide="preview.image.url&amp;&amp;preview.isSet(img)&amp;&amp;preview.image.loaded">
- +		      <h4 style="margin:0;" class="ng-binding"><img class="unique ng-hide" src="images/unique.png" ng-show="preview.image.unique"> Dwarven Axe</h4><b><i class="ng-binding"> Item. Weapon.</i></b></div>
- +		    <p ng-hide="preview.image.url&amp;&amp;preview.isSet(img)&amp;&amp;preview.image.loaded" style="text-align:left;white-space: pre-wrap;line-height:1.5;" ng-bind-html="trust(preview.image.textc)" class="ng-binding">Restricted.
- +Attach to a hero.
- +Attached hero gains +1 <img src="images/strength.gif">. (+2 <img src="images/strength.gif"> instead if attached hero is a Dwarf.)</p>
- +		  </div>
- +		</div>
- +		
- +	      </div>
- +	    </div>	
- +	  </div>
- +	  
- +	</div>
- +
- +
- +
- +
- +
- +
- +
- +	<ul class="nav nav-sidebar">
- +	  <li ng-class="{active: $state.includes('builder')}" class="active">
- +	    <a ui-sref="builder" href="#/deck/builder">Builder <span class="sr-only">(current)</span></a>
- +	  </li>
- +	  <li ng-class="{active: $state.includes('sets')}">
- +	    <a ui-sref="sets" href="#/deck/sets">Sets <span class="sr-only">(current)</span></a>
- +	  </li>
- +	  <li ng-class="{active: $state.includes('mydecks')}">
- +	    <a ui-sref="mydecks" href="#/deck/mydecks">My Decks <span class="sr-only">(current)</span></a>
- +	  </li>
- +	  <li ng-class="{active: $state.includes('mylogs')}">
- +	    <a ui-sref="mylogs" href="#/deck/mylogs">My Logs <span class="sr-only">(current)</span></a>
- +	  </li>
- +	  <li ng-class="{active: $state.includes('community')}">
- +	    <a ui-sref="community" href="#/deck/community">Community <span class="sr-only">(current)</span></a>
- +	  </li>
- +	  <li ng-class="{active: $state.includes('help')}">
- +	    <a ui-sref="help" href="#/deck/help">Help <span class="sr-only">(current)</span></a>
- +	  </li>
- +	</ul>
- +	
- +      </div>
- +      <!-- uiView:  --><div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main ng-scope" ui-view=""><div ng-controller="cardControl as cards" class="ng-scope">
- +  <div class="filterdiv" style="width:50%">
- +    <input ng-model="cards.filtersettings.search.name_norm" type="text" placeholder="Search by card name" style="width:25%;font-size:12px;margin-right:2%px;" class="ng-pristine ng-untouched ng-valid">
+   <head>
+   <style type="text/css">@charset "UTF-8";[ng\:cloak],[ng-cloak],[data-ng-cloak],[x-ng-cloak],.ng-cloak,.x-ng-cloak,.ng-hide:not(.ng-hide-animate){display:none !important;}ng\:form{display:block;}</style> 
+ 	
+     <meta charset="utf-8"> 
+     <title>The Gilman House Hotel</title> 
+     <meta name="description"> 
+     <!-- <meta name=viewport content="width=device-width"> -->
+     <link rel="stylesheet" href="styles/main.css">
+     <link rel="stylesheet" href="styles/style.css">
+     <!-- <link rel=stylesheet href=styles/vendor.css> -->
+     <!-- <link rel=stylesheet href=styles/app-blue.css> -->
+     <!-- Calendar -->
+     <link rel="stylesheet" href="jquery-ui.css">
+     <script src="jquery-1.10.2.js"></script>
+     <script src="jquery-ui.js"></script>
+     
+   </head> 
+   <body ng-app="yapp" style="" class="ng-scope">
+     <!-- uiView:  --><div ui-view="" ng-controller="authCtrl" class="ng-scope"><div class="ui-base ng-scope"> <!-- uiView:  --><div ui-view="" class="ng-scope"><div class="dashboard-page ng-scope" ng-controller="init">
+   <div class="container-fluid">
+     <div class="row">
+       <div class="col-sm-3 col-md-2 sidebar">
+ 	<div class="text-center">
+           <h2 class="brand"><img src="images/tales.png" height="52" width="52">     
+ 	    The Gilman House Hotel<br>
+ 	    <small>
+ 	      Welcome <a ng-href="#/deck/user:Guest" style="color:white" class="ng-binding" href="#/deck/user:Guest">Guest</a>
+ 	      <a ng-click="logOut()" ng-show="authData" class="btn btn-white btn-outline btn-rounded btn-sm ng-hide">Log Out</a>
+ 	      <a ng-click="logIn()" ng-hide="authData" class="btn btn-white btn-outline btn-rounded btn-sm">Log In</a>
+ 	    </small>
+ 	  </h2>
+ 	</div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 	<div class="text-center">
+           <!-- <img src=images/tales.png class=user-avatar><br> -->
+           <div class="cardpreviewdiv ng-scope" ng-controller="previewCtrl as preview">
+             <div>
+               <div style="width: 100%;" ng-hide="preview.name()==''" class="ng-binding">Dwarven Axe<br> (Core Set)<br>
+                 <div style="left:25%;width:100%;">
+                   <a class="btn btn-white btn-outline btn-rounded btn-sm activetab" href="" ng-click="preview.setTab('img')" ng-class="{activetab: preview.isSet('img')}">Image</a>
+                   <a class="btn btn-white btn-outline btn-rounded btn-sm" href="" ng-click="preview.setTab('tex'); preview.image.loaded=false" ng-class="{activetab: preview.isSet('tex')}">Text</a>
+ 		</div>
+ 		<div style="border-radius:5px;border:4px solid #ffffff;background:#ffffff;height:47%">
+ 		  <!-- ngIf: preview.image.url&&preview.isSet('img') --><img ng-if="preview.image.url&amp;&amp;preview.isSet('img')" ng-src="http://www.cardgamedb.com/forums/uploads/lotr/dwarven-axe-core.jpg" class="cardpreview ng-scope" alt="Restricted.
+ Attach to a hero.
+ Attached hero gains +1 Attack. (+2 Attack instead if attached hero is a Dwarf.)" title="Restricted.
+ Attach to a hero.
+ Attached hero gains +1 Attack. (+2 Attack instead if attached hero is a Dwarf.)" imageonload="" src="http://www.cardgamedb.com/forums/uploads/lotr/dwarven-axe-core.jpg"><!-- end ngIf: preview.image.url&&preview.isSet('img') -->
+ 		  
+ 		  <div ng-hide="preview.image.url&amp;&amp;preview.isSet('img')" style="color: black;" class="ng-hide">
+ 		    <table ng-hide="preview.image.url&amp;&amp;preview.isSet('img')&amp;&amp;preview.image.loaded" class="ng-hide">
+ 		      <tbody><tr>
+ 			<td colspan="2">
+ 			  <h2 class="ng-binding">(2)</h2></td>
+ 		      </tr>
+ 		      <tr ng-show="preview.image.willpower!=null" class="ng-hide">
+ 			<td class="ng-binding"></td>
+ 			<td><img src="images/willpower.gif"></td>
+ 		      </tr>
+ 		      <tr ng-show="preview.image.willpower!=null" class="ng-hide">
+ 			<td class="ng-binding"></td>
+ 			<td><img src="images/strength.gif"></td>
+ 		      </tr>
+ 		      <tr ng-show="preview.image.willpower!=null" class="ng-hide">
+ 			<td class="ng-binding"></td>
+ 			<td><img src="images/defense.gif"></td>
+ 		      </tr>
+ 		      <tr ng-show="preview.image.willpower!=null" class="ng-hide">
+ 			<td class="ng-binding"></td>
+ 			<td><img src="images/hitpoints.png" height="20px/"></td>
+ 		      </tr>
+ 		      <tr>
+ 			<td colspan="2"><img ng-src="images/spheres/2tactics.png" src="images/spheres/2tactics.png"></td>
+ 			<td class="ng-binding"> Attachment </td>
+ 		      </tr>
+ 		    </tbody></table>
+ 		    <div ng-hide="preview.image.url&amp;&amp;preview.isSet(img)&amp;&amp;preview.image.loaded">
+ 		      <h4 style="margin:0;" class="ng-binding"><img class="unique ng-hide" src="images/unique.png" ng-show="preview.image.unique"> Dwarven Axe</h4><b><i class="ng-binding"> Item. Weapon.</i></b></div>
+ 		    <p ng-hide="preview.image.url&amp;&amp;preview.isSet(img)&amp;&amp;preview.image.loaded" style="text-align:left;white-space: pre-wrap;line-height:1.5;" ng-bind-html="trust(preview.image.textc)" class="ng-binding">Restricted.
+ Attach to a hero.
+ Attached hero gains +1 <img src="images/strength.gif">. (+2 <img src="images/strength.gif"> instead if attached hero is a Dwarf.)</p>
+ 		  </div>
+ 		</div>
+ 		
+ 	      </div>
+ 	    </div>	
+ 	  </div>
+ 	  
+ 	</div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 	<ul class="nav nav-sidebar">
+ 	  <li ng-class="{active: $state.includes('builder')}" class="active">
+ 	    <a ui-sref="builder" href="#/deck/builder">Builder <span class="sr-only">(current)</span></a>
+ 	  </li>
+ 	  <li ng-class="{active: $state.includes('sets')}">
+ 	    <a ui-sref="sets" href="#/deck/sets">Sets <span class="sr-only">(current)</span></a>
+ 	  </li>
+ 	  <li ng-class="{active: $state.includes('mydecks')}">
+ 	    <a ui-sref="mydecks" href="#/deck/mydecks">My Decks <span class="sr-only">(current)</span></a>
+ 	  </li>
+ 	  <li ng-class="{active: $state.includes('mylogs')}">
+ 	    <a ui-sref="mylogs" href="#/deck/mylogs">My Logs <span class="sr-only">(current)</span></a>
+ 	  </li>
+ 	  <li ng-class="{active: $state.includes('community')}">
+ 	    <a ui-sref="community" href="#/deck/community">Community <span class="sr-only">(current)</span></a>
+ 	  </li>
+ 	  <li ng-class="{active: $state.includes('help')}">
+ 	    <a ui-sref="help" href="#/deck/help">Help <span class="sr-only">(current)</span></a>
+ 	  </li>
+ 	</ul>
+ 	
+       </div>
+       <!-- uiView:  --><div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main ng-scope" ui-view=""><div ng-controller="cardControl as cards" class="ng-scope">
+   <div class="filterdiv" style="width:50%">
+     <input ng-model="cards.filtersettings.search.name_norm" type="text" placeholder="Search by card name" style="width:25%;font-size:12px;margin-right:2%px;" class="ng-pristine ng-untouched ng-valid">
  +    <traits><select ng-model="cards.filtersettings.search.traits" style="width:28%;font-size:12px;margin-right:10px;" class="ng-pristine ng-untouched ng-valid">
  +  <option value="">Search by card trait</option>
  +  <option value="Archer">Archer</option>
