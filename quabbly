@@ -1,0 +1,571 @@
+<html class="no-js">
+  <head>
+  <style type="text/css">@charset "UTF-8";[ng\:cloak],[ng-cloak],[data-ng-cloak],[x-ng-cloak],.ng-cloak,.x-ng-cloak,.ng-hide:not(.ng-hide-animate){display:none !important;}ng\:form{display:block;}</style> 
+	
+    <meta charset="utf-8"> 
+    <title>The Gilman House Hotel</title> 
+    <meta name="description"> 
+    <!-- <meta name=viewport content="width=device-width"> -->
+    <link rel="stylesheet" href="styles/main.css">
+    <link rel="stylesheet" href="styles/style.css">
+    <!-- <link rel=stylesheet href=styles/vendor.css> -->
+    <!-- <link rel=stylesheet href=styles/app-blue.css> -->
+    <!-- Calendar -->
+    <link rel="stylesheet" href="jquery-ui.css">
+    <script src="jquery-1.10.2.js"></script>
+    <script src="jquery-ui.js"></script>
+    
+  </head> 
+  <body ng-app="yapp" style="" class="ng-scope">
+    <!-- uiView:  --><div ui-view="" ng-controller="authCtrl" class="ng-scope"><div class="ui-base ng-scope"> <!-- uiView:  --><div ui-view="" class="ng-scope"><div class="dashboard-page ng-scope" ng-controller="init">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-sm-3 col-md-2 sidebar">
+	<div class="text-center">
+          <h2 class="brand"><img src="images/tales.png" height="52" width="52">     
+	    Love of Tales<br>
+	    <small>
+	      Welcome <a ng-href="#/deck/user:Guest" style="color:white" class="ng-binding" href="#/deck/user:Guest">Guest</a>
+	      <a ng-click="logOut()" ng-show="authData" class="btn btn-white btn-outline btn-rounded btn-sm ng-hide">Log Out</a>
+	      <a ng-click="logIn()" ng-hide="authData" class="btn btn-white btn-outline btn-rounded btn-sm">Log In</a>
+	    </small>
+	  </h2>
+	</div>
+
+
+
+
+
+
+
+
+	<div class="text-center">
+          <!-- <img src=images/tales.png class=user-avatar><br> -->
+          <div class="cardpreviewdiv ng-scope" ng-controller="previewCtrl as preview">
+            <div>
+              <div style="width: 100%;" ng-hide="preview.name()==''" class="ng-binding">Dwarven Axe<br> (Core Set)<br>
+                <div style="left:25%;width:100%;">
+                  <a class="btn btn-white btn-outline btn-rounded btn-sm activetab" href="" ng-click="preview.setTab('img')" ng-class="{activetab: preview.isSet('img')}">Image</a>
+                  <a class="btn btn-white btn-outline btn-rounded btn-sm" href="" ng-click="preview.setTab('tex'); preview.image.loaded=false" ng-class="{activetab: preview.isSet('tex')}">Text</a>
+		</div>
+		<div style="border-radius:5px;border:4px solid #ffffff;background:#ffffff;height:47%">
+		  <!-- ngIf: preview.image.url&&preview.isSet('img') --><img ng-if="preview.image.url&amp;&amp;preview.isSet('img')" ng-src="http://www.cardgamedb.com/forums/uploads/lotr/dwarven-axe-core.jpg" class="cardpreview ng-scope" alt="Restricted.
+Attach to a hero.
+Attached hero gains +1 Attack. (+2 Attack instead if attached hero is a Dwarf.)" title="Restricted.
+Attach to a hero.
+Attached hero gains +1 Attack. (+2 Attack instead if attached hero is a Dwarf.)" imageonload="" src="http://www.cardgamedb.com/forums/uploads/lotr/dwarven-axe-core.jpg"><!-- end ngIf: preview.image.url&&preview.isSet('img') -->
+		  
+		  <div ng-hide="preview.image.url&amp;&amp;preview.isSet('img')" style="color: black;" class="ng-hide">
+		    <table ng-hide="preview.image.url&amp;&amp;preview.isSet('img')&amp;&amp;preview.image.loaded" class="ng-hide">
+		      <tbody><tr>
+			<td colspan="2">
+			  <h2 class="ng-binding">(2)</h2></td>
+		      </tr>
+		      <tr ng-show="preview.image.willpower!=null" class="ng-hide">
+			<td class="ng-binding"></td>
+			<td><img src="images/willpower.gif"></td>
+		      </tr>
+		      <tr ng-show="preview.image.willpower!=null" class="ng-hide">
+			<td class="ng-binding"></td>
+			<td><img src="images/strength.gif"></td>
+		      </tr>
+		      <tr ng-show="preview.image.willpower!=null" class="ng-hide">
+			<td class="ng-binding"></td>
+			<td><img src="images/defense.gif"></td>
+		      </tr>
+		      <tr ng-show="preview.image.willpower!=null" class="ng-hide">
+			<td class="ng-binding"></td>
+			<td><img src="images/hitpoints.png" height="20px/"></td>
+		      </tr>
+		      <tr>
+			<td colspan="2"><img ng-src="images/spheres/2tactics.png" src="images/spheres/2tactics.png"></td>
+			<td class="ng-binding"> Attachment </td>
+		      </tr>
+		    </tbody></table>
+		    <div ng-hide="preview.image.url&amp;&amp;preview.isSet(img)&amp;&amp;preview.image.loaded">
+		      <h4 style="margin:0;" class="ng-binding"><img class="unique ng-hide" src="images/unique.png" ng-show="preview.image.unique"> Dwarven Axe</h4><b><i class="ng-binding"> Item. Weapon.</i></b></div>
+		    <p ng-hide="preview.image.url&amp;&amp;preview.isSet(img)&amp;&amp;preview.image.loaded" style="text-align:left;white-space: pre-wrap;line-height:1.5;" ng-bind-html="trust(preview.image.textc)" class="ng-binding">Restricted.
+Attach to a hero.
+Attached hero gains +1 <img src="images/strength.gif">. (+2 <img src="images/strength.gif"> instead if attached hero is a Dwarf.)</p>
+		  </div>
+		</div>
+		
+	      </div>
+	    </div>	
+	  </div>
+	  
+	</div>
+
+
+
+
+
+
+
+	<ul class="nav nav-sidebar">
+	  <li ng-class="{active: $state.includes('builder')}" class="active">
+	    <a ui-sref="builder" href="#/deck/builder">Builder <span class="sr-only">(current)</span></a>
+	  </li>
+	  <li ng-class="{active: $state.includes('sets')}">
+	    <a ui-sref="sets" href="#/deck/sets">Sets <span class="sr-only">(current)</span></a>
+	  </li>
+	  <li ng-class="{active: $state.includes('mydecks')}">
+	    <a ui-sref="mydecks" href="#/deck/mydecks">My Decks <span class="sr-only">(current)</span></a>
+	  </li>
+	  <li ng-class="{active: $state.includes('mylogs')}">
+	    <a ui-sref="mylogs" href="#/deck/mylogs">My Logs <span class="sr-only">(current)</span></a>
+	  </li>
+	  <li ng-class="{active: $state.includes('community')}">
+	    <a ui-sref="community" href="#/deck/community">Community <span class="sr-only">(current)</span></a>
+	  </li>
+	  <li ng-class="{active: $state.includes('help')}">
+	    <a ui-sref="help" href="#/deck/help">Help <span class="sr-only">(current)</span></a>
+	  </li>
+	</ul>
+	
+      </div>
+      <!-- uiView:  --><div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main ng-scope" ui-view=""><div ng-controller="cardControl as cards" class="ng-scope">
+  <div class="filterdiv" style="width:50%">
+    <input ng-model="cards.filtersettings.search.name_norm" type="text" placeholder="Search by card name" style="width:25%;font-size:12px;margin-right:2%px;" class="ng-pristine ng-untouched ng-valid">
+    <traits><select ng-model="cards.filtersettings.search.traits" style="width:28%;font-size:12px;margin-right:10px;" class="ng-pristine ng-untouched ng-valid">
+  <option value="">Search by card trait</option>
+  <option value="Archer">Archer</option>
+  <option value="Armor">Armor</option>
+  <option value="Artifact">Artifact</option>
+  <option value="Beorning">Beorning</option>
+  <option value="Boon">Boon</option>
+  <option value="Bree">Bree</option>
+  <option value="Burglar">Burglar</option>
+  <option value="Condition">Condition</option>
+  <option value="Craftsman">Craftsman</option>
+  <option value="Creature">Creature</option>
+  <option value="Dale">Dale</option>
+  <option value="Dwarf">Dwarf</option>
+  <option value="Dúnedain">Dúnedain</option>
+  <option value="Eagle">Eagle</option>
+  <option value="Ent">Ent</option>
+  <option value="Esgaroth">Esgaroth</option>
+  <option value="Fellowship">Fellowship</option>
+  <option value="Gift">Gift</option>
+  <option value="Gondor">Gondor</option>
+  <option value="Healer">Healer</option>
+  <option value="Hobbit">Hobbit</option>
+  <option value="Isengard">Isengard</option>
+  <option value="Istari">Istari</option>
+  <option value="Item">Item</option>
+  <option value="Mathom">Mathom</option>
+  <option value="Minstrel">Minstrel</option>
+  <option value="Mount">Mount</option>
+  <option value="Noble">Noble</option>
+  <option value="Noldor">Noldor</option>
+  <option value="Outlands">Outlands</option>
+  <option value="Pipe">Pipe</option>
+  <option value="Pony">Pony</option>
+  <option value="Ranger">Ranger</option>
+  <option value="Record">Record</option>
+  <option value="Ring">Ring</option>
+  <option value="Ring-bearer">Ring-bearer</option>
+  <option value="Rohan">Rohan</option>
+  <option value="Scout">Scout</option>
+  <option value="Signal">Signal</option>
+  <option value="Silvan">Silvan</option>
+  <option value="Skill">Skill</option>
+  <option value="Song">Song</option>
+  <option value="Spell">Spell</option>
+  <option value="Staff">Staff</option>
+  <option value="Steward">Steward</option>
+  <option value="Tale">Tale</option>
+  <option value="Title">Title</option>
+  <option value="Trap">Trap</option>
+  <option value="Warrior">Warrior</option>
+  <option value="Weapon">Weapon</option>
+  <option value="Woodman">Woodman</option>
+</select>
+</traits>
+    <input ng-model="cards.filtersettings.search.textc" type="text" placeholder="Search by card text" style="width:25%;font-size:12px;margin-right:2%;" class="ng-pristine ng-untouched ng-valid">
+    <button ng-click="cards.resetSearch();" class="filterbutton" style="font-size:12px;width:10%;height:25px;">Reset</button>
+    <br>
+    <div style="float:left;width:100%;">
+      <!-- <div style="font-size:9px;width:100%;text-align:center;">Card Type</div><br/> -->
+      <button title="Heroes" class="filterbutton selected" ng-class="{selected: cards.filtersettings.type['1hero']}" ng-click="cards.toggleType('1hero',$event)"><img src="images/types/1hero.png"></button>
+      <button title="Allies" class="filterbutton" ng-class="{selected: cards.filtersettings.type['2ally']}" ng-click="cards.toggleType('2ally',$event)"><img src="images/types/2ally.png"></button>
+      <button title="Attachments" class="filterbutton" ng-class="{selected: cards.filtersettings.type['3attachment']}" ng-click="cards.toggleType('3attachment',$event)"><img src="images/types/3attachment.png"></button>
+      <button title="Events" class="filterbutton" ng-class="{selected: cards.filtersettings.type['4event']}" ng-click="cards.toggleType('4event',$event)"><img src="images/types/4event.png"></button>
+      <button title="Side Quests" class="filterbutton" ng-class="{selected: cards.filtersettings.type['5quest']}" ng-click="cards.toggleType('5quest',$event)"><img src="images/types/5quest.png"></button>
+      <!-- <div style="font-size:9px;width:100%;text-align:center;">Sphere of Influence</div><br/> -->
+      <button title="Leadership" class="filterbutton selected" ng-class="{selected: cards.filtersettings.spheres['1leadership']}" ng-click="cards.toggleSphere('1leadership',$event)"><img src="images/spheres/1leadership.png"></button>
+      <button title="Tactics" class="filterbutton selected" ng-class="{selected: cards.filtersettings.spheres['2tactics']}" ng-click="cards.toggleSphere('2tactics',$event)"><img src="images/spheres/2tactics.png"></button>
+      <button title="Spirit" class="filterbutton selected" ng-class="{selected: cards.filtersettings.spheres['3spirit']}" ng-click="cards.toggleSphere('3spirit',$event)"><img src="images/spheres/3spirit.png"></button>
+      <button title="Lore" class="filterbutton selected" ng-class="{selected: cards.filtersettings.spheres['4lore']}" ng-click="cards.toggleSphere('4lore',$event)"><img src="images/spheres/4lore.png"></button>
+      <button title="Neutral" class="filterbutton selected" ng-class="{selected: cards.filtersettings.spheres['5neutral']}" ng-click="cards.toggleSphere('5neutral',$event)"><img src="images/spheres/5neutral.png"></button>
+      <button title="Baggins" class="filterbutton" ng-class="{selected: cards.filtersettings.spheres['6baggins']}" ng-click="cards.toggleSphere('6baggins',$event)"><img src="images/spheres/6baggins.png"></button>
+      <button title="Fellowship" class="filterbutton" ng-class="{selected: cards.filtersettings.spheres['7fellowship']}" ng-click="cards.toggleSphere('7fellowship',$event)"><img src="images/spheres/7fellowship.png"></button>
+    </div>
+  </div>
+  <br>
+  <div style="width:50%;top:80px;left:1%;position:absolute;">
+    <table>
+      <tbody><tr>
+	<td style="font-weight: bold;left:15%;position:absolute;"><a href="" ng-click="cards.orderby('name_norm')">Name</a></td>
+	<td style="font-weight: bold;left:45%;position:absolute;"><a href="" ng-click="cards.orderby(['sphere','name_norm'])">Sphere</a></td>
+	<td style="font-weight: bold;left:60%;position:absolute;"><a href="" ng-click="cards.orderby(['cost','name_norm'])">Cost</a></td>
+	<td style="font-weight: bold;left:68%;position:absolute;"><a href="" ng-click="cards.orderby(['type','name_norm'])">Type</a></td>
+	<td style="font-weight: bold;left:76%;position:absolute;"><a href="" ng-click="cards.orderby(['-willpower','name_norm'])"><img title="Willpower" src="images/willpower.gif"></a></td>
+	<td style="font-weight: bold;left:81%;position:absolute;"><a href="" ng-click="cards.orderby(['-strength','name_norm'])"><img title="Attack" src="images/strength.gif"></a></td>
+	<td style="font-weight: bold;left:87%;position:absolute;"><a href="" ng-click="cards.orderby(['-defense','name_norm'])"><img title="Defense" src="images/defense.gif"></a></td>
+	<td style="font-weight: bold;left:91%;position:absolute;"><a href="" ng-click="cards.orderby(['-hitpoints','name_norm'])"><img title="Hit Points" src="images/hitpoints.png" style="width:20px;height:20px;"></a></td>
+      </tr>
+    </tbody></table>
+  </div>
+
+  <div class="cardsdiv" style="width:50%">
+    <table class="cardlist">
+      <tbody>
+	<!-- ngRepeat: card in cards.allcards | cardfilter:cards | filter:cards.filtersettings.search | orderBy:cards.order --><tr ng-repeat="card in cards.allcards | cardfilter:cards | filter:cards.filtersettings.search | orderBy:cards.order" class="cardrow ng-scope" ng-mouseover="cards.changepreview(card)">
+          <td style="font-size:0;width:15%;">
+            <img class="preload" ng-src="http://www.cardgamedb.com/forums/uploads/lotr/aragorn-core.jpg" src="http://www.cardgamedb.com/forums/uploads/lotr/aragorn-core.jpg"> <!-- This doesn't preload images if there's an image we want to load right now -->
+            <button class="cardbutton" ng-class="{selected: deck.quantity(card)==0}" ng-click="deck.change(card,0)">0</button>
+            <button class="cardbutton selected" ng-class="{selected: deck.quantity(card)==1}" ng-click="deck.change(card,1)">1</button>
+            <button class="cardbutton ng-hide" ng-class="{selected: deck.quantity(card)==2}" ng-click="deck.change(card,2)" ng-hide="card.type=='1hero' || card.restrict || (cards.filtersettings.onecore &amp;&amp; card.corequantity < 2)">2</button>
+            <button class="cardbutton ng-hide" ng-class="{selected: deck.quantity(card)==3}" ng-click="deck.change(card,3)" ng-hide="card.type=='1hero' || card.restrict || (cards.filtersettings.onecore &amp;&amp; card.corequantity < 3) || (deck.filtersettings.twocore &amp;&amp; card.corequantity < 2 &amp;&amp; deck.quantity(card) < 3)">3</button>
+          </td>
+          <td style=";width:28%;" class="ng-binding">
+            <img class="unique" src="images/unique.png" ng-show="card.unique">
+            Aragorn</td>
+          <td style=";width:10%;text-align:center"><img src="images/spheres/1leadership.png"></td>
+          <td style=";width:14%;text-align:center" class="ng-binding">12</td>
+          <td style=";width:7%;"><img src="images/types/1hero.png"></td>
+          <td style=";width:5%;" class="ng-binding">2</td>
+          <td style=";width:5%;" class="ng-binding">3</td>
+          <td style=";width:5%;" class="ng-binding">2</td>
+          <td style=";width:5%;" class="ng-binding">5</td>
+	</tr><!-- end ngRepeat: card in cards.allcards | cardfilter:cards | filter:cards.filtersettings.search | orderBy:cards.order --><tr ng-repeat="card in cards.allcards | cardfilter:cards | filter:cards.filtersettings.search | orderBy:cards.order" class="cardrow ng-scope" ng-mouseover="cards.changepreview(card)">
+          <td style="font-size:0;width:15%;">
+            <img class="preload" ng-src="http://www.cardgamedb.com/forums/uploads/lotr/gloin-core.jpg" src="http://www.cardgamedb.com/forums/uploads/lotr/gloin-core.jpg"> <!-- This doesn't preload images if there's an image we want to load right now -->
+            <button class="cardbutton selected" ng-class="{selected: deck.quantity(card)==0}" ng-click="deck.change(card,0)">0</button>
+            <button class="cardbutton" ng-class="{selected: deck.quantity(card)==1}" ng-click="deck.change(card,1)">1</button>
+            <button class="cardbutton ng-hide" ng-class="{selected: deck.quantity(card)==2}" ng-click="deck.change(card,2)" ng-hide="card.type=='1hero' || card.restrict || (cards.filtersettings.onecore &amp;&amp; card.corequantity < 2)">2</button>
+            <button class="cardbutton ng-hide" ng-class="{selected: deck.quantity(card)==3}" ng-click="deck.change(card,3)" ng-hide="card.type=='1hero' || card.restrict || (cards.filtersettings.onecore &amp;&amp; card.corequantity < 3) || (deck.filtersettings.twocore &amp;&amp; card.corequantity < 2 &amp;&amp; deck.quantity(card) < 3)">3</button>
+          </td>
+          <td style=";width:28%;" class="ng-binding">
+            <img class="unique" src="images/unique.png" ng-show="card.unique">
+            Glóin</td>
+          <td style=";width:10%;text-align:center"><img src="images/spheres/1leadership.png"></td>
+          <td style=";width:14%;text-align:center" class="ng-binding">9</td>
+          <td style=";width:7%;"><img src="images/types/1hero.png"></td>
+          <td style=";width:5%;" class="ng-binding">2</td>
+          <td style=";width:5%;" class="ng-binding">2</td>
+          <td style=";width:5%;" class="ng-binding">1</td>
+          <td style=";width:5%;" class="ng-binding">4</td>
+	</tr><!-- end ngRepeat: card in cards.allcards | cardfilter:cards | filter:cards.filtersettings.search | orderBy:cards.order --><tr ng-repeat="card in cards.allcards | cardfilter:cards | filter:cards.filtersettings.search | orderBy:cards.order" class="cardrow ng-scope" ng-mouseover="cards.changepreview(card)">
+          <td style="font-size:0;width:15%;">
+            <img class="preload" ng-src="http://www.cardgamedb.com/forums/uploads/lotr/theodred-core.jpg" src="http://www.cardgamedb.com/forums/uploads/lotr/theodred-core.jpg"> <!-- This doesn't preload images if there's an image we want to load right now -->
+            <button class="cardbutton selected" ng-class="{selected: deck.quantity(card)==0}" ng-click="deck.change(card,0)">0</button>
+            <button class="cardbutton" ng-class="{selected: deck.quantity(card)==1}" ng-click="deck.change(card,1)">1</button>
+            <button class="cardbutton ng-hide" ng-class="{selected: deck.quantity(card)==2}" ng-click="deck.change(card,2)" ng-hide="card.type=='1hero' || card.restrict || (cards.filtersettings.onecore &amp;&amp; card.corequantity < 2)">2</button>
+            <button class="cardbutton ng-hide" ng-class="{selected: deck.quantity(card)==3}" ng-click="deck.change(card,3)" ng-hide="card.type=='1hero' || card.restrict || (cards.filtersettings.onecore &amp;&amp; card.corequantity < 3) || (deck.filtersettings.twocore &amp;&amp; card.corequantity < 2 &amp;&amp; deck.quantity(card) < 3)">3</button>
+          </td>
+          <td style=";width:28%;" class="ng-binding">
+            <img class="unique" src="images/unique.png" ng-show="card.unique">
+            Théodred</td>
+          <td style=";width:10%;text-align:center"><img src="images/spheres/1leadership.png"></td>
+          <td style=";width:14%;text-align:center" class="ng-binding">8</td>
+          <td style=";width:7%;"><img src="images/types/1hero.png"></td>
+          <td style=";width:5%;" class="ng-binding">1</td>
+          <td style=";width:5%;" class="ng-binding">2</td>
+          <td style=";width:5%;" class="ng-binding">1</td>
+          <td style=";width:5%;" class="ng-binding">4</td>
+	</tr><!-- end ngRepeat: card in cards.allcards | cardfilter:cards | filter:cards.filtersettings.search | orderBy:cards.order --><tr ng-repeat="card in cards.allcards | cardfilter:cards | filter:cards.filtersettings.search | orderBy:cards.order" class="cardrow ng-scope" ng-mouseover="cards.changepreview(card)">
+          <td style="font-size:0;width:15%;">
+            <img class="preload" ng-src="http://www.cardgamedb.com/forums/uploads/lotr/gimli-core.jpg" src="http://www.cardgamedb.com/forums/uploads/lotr/gimli-core.jpg"> <!-- This doesn't preload images if there's an image we want to load right now -->
+            <button class="cardbutton" ng-class="{selected: deck.quantity(card)==0}" ng-click="deck.change(card,0)">0</button>
+            <button class="cardbutton selected" ng-class="{selected: deck.quantity(card)==1}" ng-click="deck.change(card,1)">1</button>
+            <button class="cardbutton ng-hide" ng-class="{selected: deck.quantity(card)==2}" ng-click="deck.change(card,2)" ng-hide="card.type=='1hero' || card.restrict || (cards.filtersettings.onecore &amp;&amp; card.corequantity < 2)">2</button>
+            <button class="cardbutton ng-hide" ng-class="{selected: deck.quantity(card)==3}" ng-click="deck.change(card,3)" ng-hide="card.type=='1hero' || card.restrict || (cards.filtersettings.onecore &amp;&amp; card.corequantity < 3) || (deck.filtersettings.twocore &amp;&amp; card.corequantity < 2 &amp;&amp; deck.quantity(card) < 3)">3</button>
+          </td>
+          <td style=";width:28%;" class="ng-binding">
+            <img class="unique" src="images/unique.png" ng-show="card.unique">
+            Gimli</td>
+          <td style=";width:10%;text-align:center"><img src="images/spheres/2tactics.png"></td>
+          <td style=";width:14%;text-align:center" class="ng-binding">11</td>
+          <td style=";width:7%;"><img src="images/types/1hero.png"></td>
+          <td style=";width:5%;" class="ng-binding">2</td>
+          <td style=";width:5%;" class="ng-binding">2</td>
+          <td style=";width:5%;" class="ng-binding">2</td>
+          <td style=";width:5%;" class="ng-binding">5</td>
+	</tr><!-- end ngRepeat: card in cards.allcards | cardfilter:cards | filter:cards.filtersettings.search | orderBy:cards.order --><tr ng-repeat="card in cards.allcards | cardfilter:cards | filter:cards.filtersettings.search | orderBy:cards.order" class="cardrow ng-scope" ng-mouseover="cards.changepreview(card)">
+          <td style="font-size:0;width:15%;">
+            <img class="preload" ng-src="http://www.cardgamedb.com/forums/uploads/lotr/legolas-core.jpg" src="http://www.cardgamedb.com/forums/uploads/lotr/legolas-core.jpg"> <!-- This doesn't preload images if there's an image we want to load right now -->
+            <button class="cardbutton" ng-class="{selected: deck.quantity(card)==0}" ng-click="deck.change(card,0)">0</button>
+            <button class="cardbutton selected" ng-class="{selected: deck.quantity(card)==1}" ng-click="deck.change(card,1)">1</button>
+            <button class="cardbutton ng-hide" ng-class="{selected: deck.quantity(card)==2}" ng-click="deck.change(card,2)" ng-hide="card.type=='1hero' || card.restrict || (cards.filtersettings.onecore &amp;&amp; card.corequantity < 2)">2</button>
+            <button class="cardbutton ng-hide" ng-class="{selected: deck.quantity(card)==3}" ng-click="deck.change(card,3)" ng-hide="card.type=='1hero' || card.restrict || (cards.filtersettings.onecore &amp;&amp; card.corequantity < 3) || (deck.filtersettings.twocore &amp;&amp; card.corequantity < 2 &amp;&amp; deck.quantity(card) < 3)">3</button>
+          </td>
+          <td style=";width:28%;" class="ng-binding">
+            <img class="unique" src="images/unique.png" ng-show="card.unique">
+            Legolas</td>
+          <td style=";width:10%;text-align:center"><img src="images/spheres/2tactics.png"></td>
+          <td style=";width:14%;text-align:center" class="ng-binding">9</td>
+          <td style=";width:7%;"><img src="images/types/1hero.png"></td>
+          <td style=";width:5%;" class="ng-binding">1</td>
+          <td style=";width:5%;" class="ng-binding">3</td>
+          <td style=";width:5%;" class="ng-binding">1</td>
+          <td style=";width:5%;" class="ng-binding">4</td>
+	</tr><!-- end ngRepeat: card in cards.allcards | cardfilter:cards | filter:cards.filtersettings.search | orderBy:cards.order --><tr ng-repeat="card in cards.allcards | cardfilter:cards | filter:cards.filtersettings.search | orderBy:cards.order" class="cardrow ng-scope" ng-mouseover="cards.changepreview(card)">
+          <td style="font-size:0;width:15%;">
+            <img class="preload" ng-src="http://www.cardgamedb.com/forums/uploads/lotr/thalin-core.jpg" src="http://www.cardgamedb.com/forums/uploads/lotr/thalin-core.jpg"> <!-- This doesn't preload images if there's an image we want to load right now -->
+            <button class="cardbutton selected" ng-class="{selected: deck.quantity(card)==0}" ng-click="deck.change(card,0)">0</button>
+            <button class="cardbutton" ng-class="{selected: deck.quantity(card)==1}" ng-click="deck.change(card,1)">1</button>
+            <button class="cardbutton ng-hide" ng-class="{selected: deck.quantity(card)==2}" ng-click="deck.change(card,2)" ng-hide="card.type=='1hero' || card.restrict || (cards.filtersettings.onecore &amp;&amp; card.corequantity < 2)">2</button>
+            <button class="cardbutton ng-hide" ng-class="{selected: deck.quantity(card)==3}" ng-click="deck.change(card,3)" ng-hide="card.type=='1hero' || card.restrict || (cards.filtersettings.onecore &amp;&amp; card.corequantity < 3) || (deck.filtersettings.twocore &amp;&amp; card.corequantity < 2 &amp;&amp; deck.quantity(card) < 3)">3</button>
+          </td>
+          <td style=";width:28%;" class="ng-binding">
+            <img class="unique" src="images/unique.png" ng-show="card.unique">
+            Thalin</td>
+          <td style=";width:10%;text-align:center"><img src="images/spheres/2tactics.png"></td>
+          <td style=";width:14%;text-align:center" class="ng-binding">9</td>
+          <td style=";width:7%;"><img src="images/types/1hero.png"></td>
+          <td style=";width:5%;" class="ng-binding">1</td>
+          <td style=";width:5%;" class="ng-binding">2</td>
+          <td style=";width:5%;" class="ng-binding">2</td>
+          <td style=";width:5%;" class="ng-binding">4</td>
+	</tr><!-- end ngRepeat: card in cards.allcards | cardfilter:cards | filter:cards.filtersettings.search | orderBy:cards.order --><tr ng-repeat="card in cards.allcards | cardfilter:cards | filter:cards.filtersettings.search | orderBy:cards.order" class="cardrow ng-scope" ng-mouseover="cards.changepreview(card)">
+          <td style="font-size:0;width:15%;">
+            <img class="preload" ng-src="http://www.cardgamedb.com/forums/uploads/lotr/dunhere-core.jpg" src="http://www.cardgamedb.com/forums/uploads/lotr/dunhere-core.jpg"> <!-- This doesn't preload images if there's an image we want to load right now -->
+            <button class="cardbutton selected" ng-class="{selected: deck.quantity(card)==0}" ng-click="deck.change(card,0)">0</button>
+            <button class="cardbutton" ng-class="{selected: deck.quantity(card)==1}" ng-click="deck.change(card,1)">1</button>
+            <button class="cardbutton ng-hide" ng-class="{selected: deck.quantity(card)==2}" ng-click="deck.change(card,2)" ng-hide="card.type=='1hero' || card.restrict || (cards.filtersettings.onecore &amp;&amp; card.corequantity < 2)">2</button>
+            <button class="cardbutton ng-hide" ng-class="{selected: deck.quantity(card)==3}" ng-click="deck.change(card,3)" ng-hide="card.type=='1hero' || card.restrict || (cards.filtersettings.onecore &amp;&amp; card.corequantity < 3) || (deck.filtersettings.twocore &amp;&amp; card.corequantity < 2 &amp;&amp; deck.quantity(card) < 3)">3</button>
+          </td>
+          <td style=";width:28%;" class="ng-binding">
+            <img class="unique" src="images/unique.png" ng-show="card.unique">
+            Dúnhere</td>
+          <td style=";width:10%;text-align:center"><img src="images/spheres/3spirit.png"></td>
+          <td style=";width:14%;text-align:center" class="ng-binding">8</td>
+          <td style=";width:7%;"><img src="images/types/1hero.png"></td>
+          <td style=";width:5%;" class="ng-binding">1</td>
+          <td style=";width:5%;" class="ng-binding">2</td>
+          <td style=";width:5%;" class="ng-binding">1</td>
+          <td style=";width:5%;" class="ng-binding">4</td>
+	</tr><!-- end ngRepeat: card in cards.allcards | cardfilter:cards | filter:cards.filtersettings.search | orderBy:cards.order --><tr ng-repeat="card in cards.allcards | cardfilter:cards | filter:cards.filtersettings.search | orderBy:cards.order" class="cardrow ng-scope" ng-mouseover="cards.changepreview(card)">
+          <td style="font-size:0;width:15%;">
+            <img class="preload" ng-src="http://www.cardgamedb.com/forums/uploads/lotr/eleanor-core.jpg" src="http://www.cardgamedb.com/forums/uploads/lotr/eleanor-core.jpg"> <!-- This doesn't preload images if there's an image we want to load right now -->
+            <button class="cardbutton selected" ng-class="{selected: deck.quantity(card)==0}" ng-click="deck.change(card,0)">0</button>
+            <button class="cardbutton" ng-class="{selected: deck.quantity(card)==1}" ng-click="deck.change(card,1)">1</button>
+            <button class="cardbutton ng-hide" ng-class="{selected: deck.quantity(card)==2}" ng-click="deck.change(card,2)" ng-hide="card.type=='1hero' || card.restrict || (cards.filtersettings.onecore &amp;&amp; card.corequantity < 2)">2</button>
+            <button class="cardbutton ng-hide" ng-class="{selected: deck.quantity(card)==3}" ng-click="deck.change(card,3)" ng-hide="card.type=='1hero' || card.restrict || (cards.filtersettings.onecore &amp;&amp; card.corequantity < 3) || (deck.filtersettings.twocore &amp;&amp; card.corequantity < 2 &amp;&amp; deck.quantity(card) < 3)">3</button>
+          </td>
+          <td style=";width:28%;" class="ng-binding">
+            <img class="unique" src="images/unique.png" ng-show="card.unique">
+            Eleanor</td>
+          <td style=";width:10%;text-align:center"><img src="images/spheres/3spirit.png"></td>
+          <td style=";width:14%;text-align:center" class="ng-binding">7</td>
+          <td style=";width:7%;"><img src="images/types/1hero.png"></td>
+          <td style=";width:5%;" class="ng-binding">1</td>
+          <td style=";width:5%;" class="ng-binding">1</td>
+          <td style=";width:5%;" class="ng-binding">2</td>
+          <td style=";width:5%;" class="ng-binding">3</td>
+	</tr><!-- end ngRepeat: card in cards.allcards | cardfilter:cards | filter:cards.filtersettings.search | orderBy:cards.order --><tr ng-repeat="card in cards.allcards | cardfilter:cards | filter:cards.filtersettings.search | orderBy:cards.order" class="cardrow ng-scope" ng-mouseover="cards.changepreview(card)">
+          <td style="font-size:0;width:15%;">
+            <img class="preload" ng-src="http://www.cardgamedb.com/forums/uploads/lotr/eowyn-core.jpg" src="http://www.cardgamedb.com/forums/uploads/lotr/eowyn-core.jpg"> <!-- This doesn't preload images if there's an image we want to load right now -->
+            <button class="cardbutton selected" ng-class="{selected: deck.quantity(card)==0}" ng-click="deck.change(card,0)">0</button>
+            <button class="cardbutton" ng-class="{selected: deck.quantity(card)==1}" ng-click="deck.change(card,1)">1</button>
+            <button class="cardbutton ng-hide" ng-class="{selected: deck.quantity(card)==2}" ng-click="deck.change(card,2)" ng-hide="card.type=='1hero' || card.restrict || (cards.filtersettings.onecore &amp;&amp; card.corequantity < 2)">2</button>
+            <button class="cardbutton ng-hide" ng-class="{selected: deck.quantity(card)==3}" ng-click="deck.change(card,3)" ng-hide="card.type=='1hero' || card.restrict || (cards.filtersettings.onecore &amp;&amp; card.corequantity < 3) || (deck.filtersettings.twocore &amp;&amp; card.corequantity < 2 &amp;&amp; deck.quantity(card) < 3)">3</button>
+          </td>
+          <td style=";width:28%;" class="ng-binding">
+            <img class="unique" src="images/unique.png" ng-show="card.unique">
+            Éowyn</td>
+          <td style=";width:10%;text-align:center"><img src="images/spheres/3spirit.png"></td>
+          <td style=";width:14%;text-align:center" class="ng-binding">9</td>
+          <td style=";width:7%;"><img src="images/types/1hero.png"></td>
+          <td style=";width:5%;" class="ng-binding">4</td>
+          <td style=";width:5%;" class="ng-binding">1</td>
+          <td style=";width:5%;" class="ng-binding">1</td>
+          <td style=";width:5%;" class="ng-binding">3</td>
+	</tr><!-- end ngRepeat: card in cards.allcards | cardfilter:cards | filter:cards.filtersettings.search | orderBy:cards.order --><tr ng-repeat="card in cards.allcards | cardfilter:cards | filter:cards.filtersettings.search | orderBy:cards.order" class="cardrow ng-scope" ng-mouseover="cards.changepreview(card)">
+          <td style="font-size:0;width:15%;">
+            <img class="preload" ng-src="http://www.cardgamedb.com/forums/uploads/lotr/beravor-core.jpg" src="http://www.cardgamedb.com/forums/uploads/lotr/beravor-core.jpg"> <!-- This doesn't preload images if there's an image we want to load right now -->
+            <button class="cardbutton selected" ng-class="{selected: deck.quantity(card)==0}" ng-click="deck.change(card,0)">0</button>
+            <button class="cardbutton" ng-class="{selected: deck.quantity(card)==1}" ng-click="deck.change(card,1)">1</button>
+            <button class="cardbutton ng-hide" ng-class="{selected: deck.quantity(card)==2}" ng-click="deck.change(card,2)" ng-hide="card.type=='1hero' || card.restrict || (cards.filtersettings.onecore &amp;&amp; card.corequantity < 2)">2</button>
+            <button class="cardbutton ng-hide" ng-class="{selected: deck.quantity(card)==3}" ng-click="deck.change(card,3)" ng-hide="card.type=='1hero' || card.restrict || (cards.filtersettings.onecore &amp;&amp; card.corequantity < 3) || (deck.filtersettings.twocore &amp;&amp; card.corequantity < 2 &amp;&amp; deck.quantity(card) < 3)">3</button>
+          </td>
+          <td style=";width:28%;" class="ng-binding">
+            <img class="unique" src="images/unique.png" ng-show="card.unique">
+            Beravor</td>
+          <td style=";width:10%;text-align:center"><img src="images/spheres/4lore.png"></td>
+          <td style=";width:14%;text-align:center" class="ng-binding">10</td>
+          <td style=";width:7%;"><img src="images/types/1hero.png"></td>
+          <td style=";width:5%;" class="ng-binding">2</td>
+          <td style=";width:5%;" class="ng-binding">2</td>
+          <td style=";width:5%;" class="ng-binding">2</td>
+          <td style=";width:5%;" class="ng-binding">4</td>
+	</tr><!-- end ngRepeat: card in cards.allcards | cardfilter:cards | filter:cards.filtersettings.search | orderBy:cards.order --><tr ng-repeat="card in cards.allcards | cardfilter:cards | filter:cards.filtersettings.search | orderBy:cards.order" class="cardrow ng-scope" ng-mouseover="cards.changepreview(card)">
+          <td style="font-size:0;width:15%;">
+            <img class="preload" ng-src="http://www.cardgamedb.com/forums/uploads/lotr/denethor-core.jpg" src="http://www.cardgamedb.com/forums/uploads/lotr/denethor-core.jpg"> <!-- This doesn't preload images if there's an image we want to load right now -->
+            <button class="cardbutton selected" ng-class="{selected: deck.quantity(card)==0}" ng-click="deck.change(card,0)">0</button>
+            <button class="cardbutton" ng-class="{selected: deck.quantity(card)==1}" ng-click="deck.change(card,1)">1</button>
+            <button class="cardbutton ng-hide" ng-class="{selected: deck.quantity(card)==2}" ng-click="deck.change(card,2)" ng-hide="card.type=='1hero' || card.restrict || (cards.filtersettings.onecore &amp;&amp; card.corequantity < 2)">2</button>
+            <button class="cardbutton ng-hide" ng-class="{selected: deck.quantity(card)==3}" ng-click="deck.change(card,3)" ng-hide="card.type=='1hero' || card.restrict || (cards.filtersettings.onecore &amp;&amp; card.corequantity < 3) || (deck.filtersettings.twocore &amp;&amp; card.corequantity < 2 &amp;&amp; deck.quantity(card) < 3)">3</button>
+          </td>
+          <td style=";width:28%;" class="ng-binding">
+            <img class="unique" src="images/unique.png" ng-show="card.unique">
+            Denethor</td>
+          <td style=";width:10%;text-align:center"><img src="images/spheres/4lore.png"></td>
+          <td style=";width:14%;text-align:center" class="ng-binding">8</td>
+          <td style=";width:7%;"><img src="images/types/1hero.png"></td>
+          <td style=";width:5%;" class="ng-binding">1</td>
+          <td style=";width:5%;" class="ng-binding">1</td>
+          <td style=";width:5%;" class="ng-binding">3</td>
+          <td style=";width:5%;" class="ng-binding">3</td>
+	</tr><!-- end ngRepeat: card in cards.allcards | cardfilter:cards | filter:cards.filtersettings.search | orderBy:cards.order --><tr ng-repeat="card in cards.allcards | cardfilter:cards | filter:cards.filtersettings.search | orderBy:cards.order" class="cardrow ng-scope" ng-mouseover="cards.changepreview(card)">
+          <td style="font-size:0;width:15%;">
+            <img class="preload" ng-src="http://www.cardgamedb.com/forums/uploads/lotr/glorfindel-core.jpg" src="http://www.cardgamedb.com/forums/uploads/lotr/glorfindel-core.jpg"> <!-- This doesn't preload images if there's an image we want to load right now -->
+            <button class="cardbutton selected" ng-class="{selected: deck.quantity(card)==0}" ng-click="deck.change(card,0)">0</button>
+            <button class="cardbutton" ng-class="{selected: deck.quantity(card)==1}" ng-click="deck.change(card,1)">1</button>
+            <button class="cardbutton ng-hide" ng-class="{selected: deck.quantity(card)==2}" ng-click="deck.change(card,2)" ng-hide="card.type=='1hero' || card.restrict || (cards.filtersettings.onecore &amp;&amp; card.corequantity < 2)">2</button>
+            <button class="cardbutton ng-hide" ng-class="{selected: deck.quantity(card)==3}" ng-click="deck.change(card,3)" ng-hide="card.type=='1hero' || card.restrict || (cards.filtersettings.onecore &amp;&amp; card.corequantity < 3) || (deck.filtersettings.twocore &amp;&amp; card.corequantity < 2 &amp;&amp; deck.quantity(card) < 3)">3</button>
+          </td>
+          <td style=";width:28%;" class="ng-binding">
+            <img class="unique" src="images/unique.png" ng-show="card.unique">
+            Glorfindel</td>
+          <td style=";width:10%;text-align:center"><img src="images/spheres/4lore.png"></td>
+          <td style=";width:14%;text-align:center" class="ng-binding">12</td>
+          <td style=";width:7%;"><img src="images/types/1hero.png"></td>
+          <td style=";width:5%;" class="ng-binding">3</td>
+          <td style=";width:5%;" class="ng-binding">3</td>
+          <td style=";width:5%;" class="ng-binding">1</td>
+          <td style=";width:5%;" class="ng-binding">5</td>
+	</tr><!-- end ngRepeat: card in cards.allcards | cardfilter:cards | filter:cards.filtersettings.search | orderBy:cards.order -->
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<div ng-controller="deckCtrl" class="ng-scope">
+<div class="deckdiv">
+  <div ng-hide="deck.empty();" class="">
+    <input type="text" name="deckname" placeholder="Deck name" ng-model="deck.deckname" ng-disabled="deck.editing" style="width:100%;" class="ng-pristine ng-untouched ng-valid">
+    <button ng-click="saveDeck();" class="filterbutton" style="font-size:12px;width:49%;height:25px;" ng-disabled="saving">Save</button>
+    <button ng-click="deck.clear();" class="filterbutton" style="font-size:12px;width:49%;height:25px;">Clear Deck</button>
+  </div>
+  <h4 ng-show="deck.countTotal()" class="ng-binding ng-hide">Total Cards: 0</h4>
+  <table class="deck">
+    <tbody><tr class="head" ng-show="deck.countHeroes()"><td style="width:100px"></td><td class="ng-binding">Heroes (Starting threat: 32)</td></tr>
+    <!-- ngRepeat: card in deck['1hero'] | orderBy:['sphere','name_norm'] --><tr class="card ng-scope" ng-repeat="card in deck['1hero'] | orderBy:['sphere','name_norm']" ng-mouseover="changepreview(card)">
+      <td style="font-size:0;text-align:center;">
+        <button class="cardbutton" ng-class="{selected: deck.quantity(card)==0}" ng-click="deck.change(card,0)">X</button>
+      </td>
+      <td class="c1leadership">Aragorn</td>
+    </tr><!-- end ngRepeat: card in deck['1hero'] | orderBy:['sphere','name_norm'] --><tr class="card ng-scope" ng-repeat="card in deck['1hero'] | orderBy:['sphere','name_norm']" ng-mouseover="changepreview(card)">
+      <td style="font-size:0;text-align:center;">
+        <button class="cardbutton" ng-class="{selected: deck.quantity(card)==0}" ng-click="deck.change(card,0)">X</button>
+      </td>
+      <td class="c2tactics">Gimli</td>
+    </tr><!-- end ngRepeat: card in deck['1hero'] | orderBy:['sphere','name_norm'] --><tr class="card ng-scope" ng-repeat="card in deck['1hero'] | orderBy:['sphere','name_norm']" ng-mouseover="changepreview(card)">
+      <td style="font-size:0;text-align:center;">
+        <button class="cardbutton" ng-class="{selected: deck.quantity(card)==0}" ng-click="deck.change(card,0)">X</button>
+      </td>
+      <td class="c2tactics">Legolas</td>
+    </tr><!-- end ngRepeat: card in deck['1hero'] | orderBy:['sphere','name_norm'] --><tr class="head ng-hide" ng-show="deck.countAllies()"><td></td><td class="ng-binding">Allies (0)</td></tr>
+    <!-- ngRepeat: card in deck['2ally'] | orderBy:['sphere','name_norm'] --><tr class="head ng-hide" ng-show="deck.countAttachments()"><td></td><td class="ng-binding">Attachments (0)</td></tr>
+    <!-- ngRepeat: card in deck['3attachment'] | orderBy:['sphere','name_norm'] --><tr class="head ng-hide" ng-show="deck.countEvents()"><td></td><td class="ng-binding">Events (0)</td></tr>
+    <!-- ngRepeat: card in deck['4event'] | orderBy:['sphere','name_norm'] -->
+    <tr class="head ng-hide" ng-show="deck.countQuests()"><td></td><td class="ng-binding">Quests (0)</td></tr>
+    <!-- ngRepeat: card in deck['5quest'] | orderBy:['sphere','name_norm'] -->
+  </tbody></table>
+
+
+</div>
+<div class="suggesteddiv ng-scope" ng-controller="suggestedCtrl">
+  <button class="filterbutton" style="width: 80%; height: 25px;" ng-show="(!suggested.empty()||suggested.blacklist.length)&amp;&amp;!suggested.hidden&amp;&amp;!deck.empty()" ng-click="suggested.hide()" ng-class="">
+    Hide Suggestions
+  </button>
+  <button class="filterbutton ng-hide" style="width:80%;height:25px" ng-show="(!suggested.empty()||suggested.blacklist.length)&amp;&amp;suggested.hidden&amp;&amp;!deck.empty()" ng-click="suggested.show()" ng-class="">
+    Show Suggestions
+  </button>
+  <button class="filterbutton ng-hide" style="width:80%;height:25px" ng-show="suggested.blacklist.length&amp;&amp;!suggested.hidden&amp;&amp;!deck.empty()" ng-click="suggested.clearBlacklist()" ng-class="">
+    Clear Blocked Suggestions
+  </button>
+  <table class="suggested" ng-show="!suggested.hidden">
+    <tbody><tr class="head ng-hide" ng-show="suggested.countHeroes()"><td style="width:100px"></td><td>Heroes</td></tr>
+    <!-- ngRepeat: card in suggested['1hero'] | orderBy:['sphere','name_norm'] --><tr class="head" ng-show="suggested.countAllies()"><td></td><td>Allies</td></tr>
+    <!-- ngRepeat: card in suggested['2ally'] | orderBy:['sphere','name_norm'] --><tr class="card ng-scope" ng-repeat="card in suggested['2ally'] | orderBy:['sphere','name_norm']" ng-mouseover="changepreview(card)">
+      <td style="font-size:0;">
+        <button class="cardbutton" ng-class="" ng-click="suggested.remove(card)">X</button>
+        <button class="cardbutton" ng-class="{selected: deck.quantity(card)==1}" ng-click="deck.change(card,1)">1</button>
+        <button class="cardbutton" ng-class="{selected: deck.quantity(card)==2}" ng-click="deck.change(card,2)" ng-hide="card.restrict || (suggested.filtersettings.onecore &amp;&amp; card.corequantity < 2 &amp;&amp; deck.quantity(card)<2 )">2</button>
+        <button class="cardbutton" ng-class="{selected: deck.quantity(card)==3}" ng-click="deck.change(card,3)" ng-hide="card.restrict || (suggested.filtersettings.onecore &amp;&amp; card.corequantity < 3 &amp;&amp; deck.quantity(card)<3 ) || (suggested.filtersettings.twocore &amp;&amp; card.corequantity < 2 &amp;&amp; deck.quantity(card) < 3)">3</button>
+      </td>
+      <td class="c1leadership">Brok Ironfist</td>
+    </tr><!-- end ngRepeat: card in suggested['2ally'] | orderBy:['sphere','name_norm'] --><tr class="head" ng-show="suggested.countAttachments()"><td></td><td>Attachments</td></tr>
+    <!-- ngRepeat: card in suggested['3attachment'] | orderBy:['sphere','name_norm'] --><tr class="card ng-scope" ng-repeat="card in suggested['3attachment'] | orderBy:['sphere','name_norm']" ng-mouseover="changepreview(card)">
+      <td style="font-size:0;">
+        <button class="cardbutton" ng-class="" ng-click="suggested.remove(card)">X</button>
+        <button class="cardbutton" ng-class="{selected: deck.quantity(card)==1}" ng-click="deck.change(card,1)">1</button>
+        <button class="cardbutton" ng-class="{selected: deck.quantity(card)==2}" ng-click="deck.change(card,2)" ng-hide="card.restrict || (suggested.filtersettings.onecore &amp;&amp; card.corequantity < 2 &amp;&amp; deck.quantity(card)<2 )">2</button>
+        <button class="cardbutton" ng-class="{selected: deck.quantity(card)==3}" ng-click="deck.change(card,3)" ng-hide="card.restrict || (suggested.filtersettings.onecore &amp;&amp; card.corequantity < 3 &amp;&amp; deck.quantity(card)<3 ) || (suggested.filtersettings.twocore &amp;&amp; card.corequantity < 2 &amp;&amp; deck.quantity(card) < 3)">3</button>
+      </td>
+      <td class="c1leadership">Celebrían's Stone</td>
+    </tr><!-- end ngRepeat: card in suggested['3attachment'] | orderBy:['sphere','name_norm'] --><tr class="card ng-scope" ng-repeat="card in suggested['3attachment'] | orderBy:['sphere','name_norm']" ng-mouseover="changepreview(card)">
+      <td style="font-size:0;">
+        <button class="cardbutton" ng-class="" ng-click="suggested.remove(card)">X</button>
+        <button class="cardbutton" ng-class="{selected: deck.quantity(card)==1}" ng-click="deck.change(card,1)">1</button>
+        <button class="cardbutton" ng-class="{selected: deck.quantity(card)==2}" ng-click="deck.change(card,2)" ng-hide="card.restrict || (suggested.filtersettings.onecore &amp;&amp; card.corequantity < 2 &amp;&amp; deck.quantity(card)<2 )">2</button>
+        <button class="cardbutton" ng-class="{selected: deck.quantity(card)==3}" ng-click="deck.change(card,3)" ng-hide="card.restrict || (suggested.filtersettings.onecore &amp;&amp; card.corequantity < 3 &amp;&amp; deck.quantity(card)<3 ) || (suggested.filtersettings.twocore &amp;&amp; card.corequantity < 2 &amp;&amp; deck.quantity(card) < 3)">3</button>
+      </td>
+      <td class="c1leadership">Steward of Gondor</td>
+    </tr><!-- end ngRepeat: card in suggested['3attachment'] | orderBy:['sphere','name_norm'] --><tr class="card ng-scope" ng-repeat="card in suggested['3attachment'] | orderBy:['sphere','name_norm']" ng-mouseover="changepreview(card)">
+      <td style="font-size:0;">
+        <button class="cardbutton" ng-class="" ng-click="suggested.remove(card)">X</button>
+        <button class="cardbutton" ng-class="{selected: deck.quantity(card)==1}" ng-click="deck.change(card,1)">1</button>
+        <button class="cardbutton" ng-class="{selected: deck.quantity(card)==2}" ng-click="deck.change(card,2)" ng-hide="card.restrict || (suggested.filtersettings.onecore &amp;&amp; card.corequantity < 2 &amp;&amp; deck.quantity(card)<2 )">2</button>
+        <button class="cardbutton" ng-class="{selected: deck.quantity(card)==3}" ng-click="deck.change(card,3)" ng-hide="card.restrict || (suggested.filtersettings.onecore &amp;&amp; card.corequantity < 3 &amp;&amp; deck.quantity(card)<3 ) || (suggested.filtersettings.twocore &amp;&amp; card.corequantity < 2 &amp;&amp; deck.quantity(card) < 3)">3</button>
+      </td>
+      <td class="c2tactics">Blade of Gondolin</td>
+    </tr><!-- end ngRepeat: card in suggested['3attachment'] | orderBy:['sphere','name_norm'] --><tr class="card ng-scope" ng-repeat="card in suggested['3attachment'] | orderBy:['sphere','name_norm']" ng-mouseover="changepreview(card)">
+      <td style="font-size:0;">
+        <button class="cardbutton" ng-class="" ng-click="suggested.remove(card)">X</button>
+        <button class="cardbutton" ng-class="{selected: deck.quantity(card)==1}" ng-click="deck.change(card,1)">1</button>
+        <button class="cardbutton" ng-class="{selected: deck.quantity(card)==2}" ng-click="deck.change(card,2)" ng-hide="card.restrict || (suggested.filtersettings.onecore &amp;&amp; card.corequantity < 2 &amp;&amp; deck.quantity(card)<2 )">2</button>
+        <button class="cardbutton" ng-class="{selected: deck.quantity(card)==3}" ng-click="deck.change(card,3)" ng-hide="card.restrict || (suggested.filtersettings.onecore &amp;&amp; card.corequantity < 3 &amp;&amp; deck.quantity(card)<3 ) || (suggested.filtersettings.twocore &amp;&amp; card.corequantity < 2 &amp;&amp; deck.quantity(card) < 3)">3</button>
+      </td>
+      <td class="c2tactics">Dwarven Axe</td>
+    </tr><!-- end ngRepeat: card in suggested['3attachment'] | orderBy:['sphere','name_norm'] --><tr class="head" ng-show="suggested.countEvents()"><td></td><td>Events</td></tr>
+    <!-- ngRepeat: card in suggested['4event'] | orderBy:['sphere','name_norm'] --><tr class="card ng-scope" ng-repeat="card in suggested['4event'] | orderBy:['sphere','name_norm']" ng-mouseover="changepreview(card)">
+      <td style="font-size:0;">
+        <button class="cardbutton" ng-class="" ng-click="suggested.remove(card)">X</button>
+        <button class="cardbutton" ng-class="{selected: deck.quantity(card)==1}" ng-click="deck.change(card,1)">1</button>
+        <button class="cardbutton" ng-class="{selected: deck.quantity(card)==2}" ng-click="deck.change(card,2)" ng-hide="card.restrict || (suggested.filtersettings.onecore &amp;&amp; card.corequantity < 2 &amp;&amp; deck.quantity(card)<2 )">2</button>
+        <button class="cardbutton" ng-class="{selected: deck.quantity(card)==3}" ng-click="deck.change(card,3)" ng-hide="card.restrict || (suggested.filtersettings.onecore &amp;&amp; card.corequantity < 3 &amp;&amp; deck.quantity(card)<3 ) || (suggested.filtersettings.twocore &amp;&amp; card.corequantity < 2 &amp;&amp; deck.quantity(card) < 3)">3</button>
+      </td>
+      <td class="c2tactics">Feint</td></tr><!-- end ngRepeat: card in suggested['4event'] | orderBy:['sphere','name_norm'] --><tr class="card ng-scope" ng-repeat="card in suggested['4event'] | orderBy:['sphere','name_norm']" ng-mouseover="changepreview(card)">
+      <td style="font-size:0;">
+        <button class="cardbutton" ng-class="" ng-click="suggested.remove(card)">X</button>
+        <button class="cardbutton" ng-class="{selected: deck.quantity(card)==1}" ng-click="deck.change(card,1)">1</button>
+        <button class="cardbutton" ng-class="{selected: deck.quantity(card)==2}" ng-click="deck.change(card,2)" ng-hide="card.restrict || (suggested.filtersettings.onecore &amp;&amp; card.corequantity < 2 &amp;&amp; deck.quantity(card)<2 )">2</button>
+        <button class="cardbutton" ng-class="{selected: deck.quantity(card)==3}" ng-click="deck.change(card,3)" ng-hide="card.restrict || (suggested.filtersettings.onecore &amp;&amp; card.corequantity < 3 &amp;&amp; deck.quantity(card)<3 ) || (suggested.filtersettings.twocore &amp;&amp; card.corequantity < 2 &amp;&amp; deck.quantity(card) < 3)">3</button>
+      </td>
+      <td class="c2tactics">Rain of Arrows</td></tr><!-- end ngRepeat: card in suggested['4event'] | orderBy:['sphere','name_norm'] -->
+    <tr class="head ng-hide" ng-show="suggested.countQuests()"><td></td><td>Quests</td></tr>
+    <!-- ngRepeat: card in suggested['5quest'] | orderBy:['sphere','name_norm'] -->
+  </tbody></table>
+
+</div>
+</div>
+</div>
+    </div>
+  </div>
+</div>
+</div></div></div>
+    <script src="scripts/vendor.js"></script>
+    <script src="scripts/scripts.js"></script>
+    <script src="firebase.js"></script>
+    <script src="angularfire.min.js"></script>
+    <script src="firebase-simple-login.js"></script>
+    <script src="parse-1.4.2.min.js"></script>
+    <script src="scripts/ngStorage.min.js"></script>
+  
+ 
+</body></html>
