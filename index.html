@@ -22,6 +22,21 @@
  +            <img class="preload" ng-src="http://lcg-cdn.fantasyflightgames.com/coc/CT18_143.jpg" src="http://lcg-cdn.fantasyflightgames.com/coc/CT18_143.jpg">
       </td>
       
+       	<div class="text-center">
+           <!-- <img src=images/tales.png class=user-avatar><br> -->
+           <div class="cardpreviewdiv ng-scope" ng-controller="previewCtrl as preview">
+             <div>
+               <div style="width: 100%;" ng-hide="preview.name()==''" class="ng-binding">Dwarven Axe<br> (Core Set)<br>
+                 <div style="left:25%;width:100%;">
+                   <a class="btn btn-white btn-outline btn-rounded btn-sm activetab" href="" ng-click="preview.setTab('img')" ng-class="{activetab: preview.isSet('img')}">Image</a>
+                   <a class="btn btn-white btn-outline btn-rounded btn-sm" href="" ng-click="preview.setTab('tex'); preview.image.loaded=false" ng-class="{activetab: preview.isSet('tex')}">Text</a>
+ 		            </div>
+ 		         </div>
+ 		      </div>
+ 		   </div>
+ 		</div>
+ 	
+      
      <!-- uiView:  --><div ui-view="" ng-controller="authCtrl" class="ng-scope"><div class="ui-base ng-scope"> <!-- uiView:  --><div ui-view="" class="ng-scope"><div class="dashboard-page ng-scope" ng-controller="init">
    <div class="container-fluid">
      <div class="row">
